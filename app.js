@@ -24,7 +24,7 @@ const pollingUnitRoute = require('./routes/pollingUnit');
 const dbUrl = process.env.DB_URL
 
 
-mongoose.connect('mongodb://localhost:27017/election');
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 db.on('error',console.error.bind(console,'connection error:'));
