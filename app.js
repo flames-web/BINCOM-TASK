@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 
 const express = require('express');
@@ -23,7 +22,6 @@ const pollingUnitRoute = require('./routes/pollingUnit');
 
 const dbUrl = process.env.DB_URL
 
-
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
@@ -33,6 +31,11 @@ db.once('open', () => {
 })
 
 app.use(pollingUnitRoute);
+
+app.all('*', (req,res,next) => {
+  const error = new AppError(400,'Page Not Found');
+  next(error);
+})
 
 app.use((err,req,res,next) => {
   const { status = 500 } =  AppError;
