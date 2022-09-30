@@ -6,6 +6,7 @@
         <th scope="col">LGA</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
+        <th scope="col">Polling Unit</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
             <th scope="row"><%= lga.uniqueid %> </th>
             <td><%= lga.lga_name %> </td>
             <td><%= lga.lga_description %> </td>
+            <td><a class="btn btn-dark" href="/lga/<%= lga.lga_id %> ">View Polling Unit</a></td>
           </tr>
         <% } %>  
     </tbody>

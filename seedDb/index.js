@@ -59,6 +59,9 @@ const seedDB = async () => {
         })
         await newPu.save()
     }
+    for(lga of lgaResults){
+        const newLga = new (lga);
+    }
 }
 
 seedDB().then( () => {

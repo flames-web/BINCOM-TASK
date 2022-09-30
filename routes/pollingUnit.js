@@ -8,8 +8,8 @@ router.get('/polling_unit',pollingUnit.getPollingUnit);
 
 router.get('/lga',pollingUnit.getLga);
 
+router.get('/lga/:id',pollingUnit.getPuLga);
+
 router.get('/polling_unit/result/:id',pollingUnit.getPollingUnitLga);
-
-
 
 module.exports = router;
