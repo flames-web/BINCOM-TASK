@@ -2,6 +2,10 @@ const PollingUnit = require('../models/pollingUnit');
 const Lga = require('../models/lga');
 const AnnouncedPu = require('../models/announcedPuResult');
 
+module.exports.index = (req,res) => {
+    res.render('index')
+}
+
 module.exports.getPollingUnit = async (req,res) => {
     const polling_unit = await PollingUnit.find({});
     res.render('categories/pollingUnit',{polling_unit})
