@@ -30,3 +30,21 @@ module.exports.getPuLga = async (req,res) => {
     console.log(lga);
     res.render('categories/pollingUnit',{polling_unit:pu,unit:lga.lga_name});
 }
+
+module.exports.newPu = (req,res) => {
+    res.render('categories/newPollingUnit');
+}
+
+module.exports.postPu = async (req,res) => {
+    if(req.body){
+     const x = await PollingUnit.find({});
+     const num = x.length + 8;   
+     const newPu = new PollingUnit({
+        uniqueid:num,...req.body
+     });
+     await newPu.save()
+     res.redirect('/polling_unit');
+    }else {
+        res.redirect('/new')
+    }
+    }

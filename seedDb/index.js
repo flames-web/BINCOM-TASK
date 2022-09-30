@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const {datas,lgas,pollingUnitResult} = require('./data');
 
 const dbUrl = process.env.DB_URL
-mongoose.connect('mongodb+srv://olalekan:JVRaNVWelOc8R6BL@atlascluster.wihos6y.mongodb.net/election');
+mongoose.connect('mongodb://localhost:27017/election');
 
 const db = mongoose.connection;
 db.on('error',console.error.bind(console,'connection error:'));
@@ -58,9 +58,6 @@ const seedDB = async () => {
             user_ip_address:pool.user_ip_address,
         })
         await newPu.save()
-    }
-    for(lga of lgaResults){
-        const newLga = new (lga);
     }
 }
 

@@ -1,15 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const pollingUnit = require('../controllers/pollingUnit');
+const catchAsync = require('../utils/catchAsync');
 
-router.get('/',pollingUnit.index);
+router.get('/',catchAsync(pollingUnit.index));
 
-router.get('/polling_unit',pollingUnit.getPollingUnit);
+router.get('/polling_unit',catchAsync(pollingUnit.getPollingUnit));
 
-router.get('/lga',pollingUnit.getLga);
+router.get('/lga',catchAsync(pollingUnit.getLga));
 
-router.get('/lga/:id',pollingUnit.getPuLga);
+router.get('/new',catchAsync(pollingUnit.newPu));
 
-router.get('/polling_unit/result/:id',pollingUnit.getPollingUnitLga);
+router.post('/new',catchAsync(pollingUnit.postPu));
+
+router.get('/lga/:id',catchAsync(pollingUnit.getPuLga));
+
+router.get('/polling_unit/result/:id',catchAsync(pollingUnit.getPollingUnitLga));
+
 
 module.exports = router;
