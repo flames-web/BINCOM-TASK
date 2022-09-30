@@ -15,11 +15,12 @@ app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'));
 
 
-const dbUrl = 'mongodb://localhost:27017/election';
-//  process.env.DB_URL
+const dbUrl = process.env.DB_URL
+// 'mongodb://localhost:27017/election';
+ 
 
 
-mongoose.connect(dbUrl);
+mongoose.connect('mongodb+srv://olalekan:JVRaNVWelOc8R6BL@atlascluster.wihos6y.mongodb.net/election');
 
 const db = mongoose.connection;
 db.on('error',console.error.bind(console,'connection error:'));
@@ -29,6 +30,7 @@ db.once('open', () => {
 
 app.use(pollingUnitRoute);
 
-app.listen(3000, () => {
+const port = process.env.PORT || 3000
+app.listen(port, () => {
     console.log('Listening on port 3000')
 })

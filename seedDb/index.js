@@ -4,7 +4,8 @@ const AnnouncedPu = require('../models/announcedPuResult')
 const mongoose = require('mongoose');
 const {datas,lgas,pollingUnitResult} = require('./data');
 
-mongoose.connect('mongodb://localhost:27017/election');
+const dbUrl = process.env.DB_URL
+mongoose.connect('mongodb+srv://olalekan:JVRaNVWelOc8R6BL@atlascluster.wihos6y.mongodb.net/election');
 
 const db = mongoose.connection;
 db.on('error',console.error.bind(console,'connection error:'));
