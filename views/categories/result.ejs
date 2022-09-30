@@ -1,0 +1,21 @@
+<%- layout('layouts/boilerplate') -%>
+<%- layout('layouts/boilerplate') -%>
+<h1 class="mb-3">List Of Polling Units Results In Delta State</h1>
+<h3 class="card-title mb-3"><%= polling_unit.polling_unit_name %> </h3>
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">PARTY NAME</th>
+        <th scope="col">SCORE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let pool of puResult){ %>
+        <tr>
+            <!-- <th scope="row"><%= pool.result_id %> </th> -->
+            <td><%= pool.party_abbreviation %> </td>
+            <td><%= pool.party_score %> </td>
+          </tr>
+        <% } %>  
+    </tbody>
+  </table>
