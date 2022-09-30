@@ -17,10 +17,7 @@ app.set('views',path.join(__dirname,'views'));
 
 const dbUrl = process.env.DB_URL
 // 'mongodb://localhost:27017/election';
- 
-
-
-mongoose.connect('mongodb+srv://olalekan:JVRaNVWelOc8R6BL@atlascluster.wihos6y.mongodb.net/election');
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 db.on('error',console.error.bind(console,'connection error:'));
